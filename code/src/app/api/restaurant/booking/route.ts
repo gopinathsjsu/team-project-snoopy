@@ -47,7 +47,8 @@ export async function GET(req: NextRequest) {
 // /api/restaurant
 export async function POST(req: NextRequest) {
   try {
-    const { id, partySize, reserveDay, reserveTime, token } = await req.json();
+    const { id, partySize, reserveDay, reserveTime, token, name } =
+      await req.json();
     if (!token) {
       return NextResponse.json<ApiResponse<null>>(
         {
@@ -119,8 +120,30 @@ export async function POST(req: NextRequest) {
     await mail({
       email: user.email,
       name: user.name,
-      subject: `Booking Confirmation - Restaurant ${id}`,
-      message: `Booking Details:\nDate: ${reserveDay}\nTime: ${reserveTime}\nParty Size: ${partySize}`,
+      subject: `Booking Confirmation - ${name}`,
+      message: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px;">
+          <h2 style="color: #2c3e50;">Thank you for your reservation at <span style="color: #e67e22;">${name}</span>!</h2>
+          <p style="font-size: 16px; color: #555;">Here are your booking details:</p>
+          <table style="width: 100%; font-size: 15px; color: #333; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 8px 0; font-weight: bold;">Date:</td>
+              <td style="padding: 8px 0;">${reserveDay}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; font-weight: bold;">Time:</td>
+              <td style="padding: 8px 0;">${reserveTime}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; font-weight: bold;">Party Size:</td>
+              <td style="padding: 8px 0;">${partySize}</td>
+            </tr>
+          </table>
+          <p style="margin-top: 20px; font-size: 14px; color: #888;">
+            You’ll receive updates if your reservation status changes. We look forward to seeing you!
+          </p>
+        </div>
+      `,
     });
 
     return NextResponse.json<ApiResponse<QueryResult>>(

@@ -45,6 +45,7 @@ const DetailCmp = ({ id }: { id: string }) => {
       await addReservation({
         ...state,
         id: restaurant?.id,
+        name: restaurant?.name,
         token: localStorage.getItem("token"),
       });
       setState({
