@@ -1,3 +1,13 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Fu_pncF5)
+# BookTable
 
-project
+A full-stack restaurant reservation platform built with Next.js, where customers can book tables, managers can post listings, and admins can manage approvals. Inspired by OpenTable.
+
+## Tech Stack
+
+- **Frontend & Backend**: [Next.js]
+- **Language**: TypeScript
+- **Database**: MySQL (remote or cloud-hosted)
+- **Authentication**: NextAuth.js
+- **Location Features**: Google Maps & IP-based geolocation
+- **Styling**: CSS Modules, SCSS
+- **Deployment Ready**: Vercel or AWS

@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.inactive-nav-route {
+  padding: 10px;
+  color: gray;
+  font-weight: 500;
+}
+.inactive-nav-route:hover {
+  color: #ccc;
+  font-weight: 200;
+  background-color: #999;
+}
+
+.active-nav-route {
+  color: #ccc;
+  font-weight: 300;
+  background-color: #999;
+}
