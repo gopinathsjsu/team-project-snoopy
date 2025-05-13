@@ -1,0 +1,41 @@
+CREATE TABLE `users` (                                                                   
+          `user_id` int(11) NOT NULL AUTO_INCREMENT,                                             
+          `username` varchar(50) DEFAULT NULL,                                                   
+          `password` varchar(200) DEFAULT NULL,                                                  
+          `email` varchar(200) DEFAULT NULL,                                                     
+          `name` varchar(50) DEFAULT NULL,                                                       
+          `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  
+          `role` varchar(50) DEFAULT NULL COMMENT 'customer,manager,admin',                      
+          PRIMARY KEY (`user_id`)                                                                
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `restaurants` (                                                         
+               `id` int(11) NOT NULL AUTO_INCREMENT,                                              
+               `user_id` int(11) DEFAULT NULL,                                                    
+               `name` varchar(200) DEFAULT NULL,                                                  
+               `address` text,                                                                    
+               `contact` varchar(200) DEFAULT NULL,                                               
+               `cuisine` varchar(200) DEFAULT NULL,                                               
+               `hours` text,                                                                      
+               `availableTimes` text,                                                             
+               `tableSize` text,                                                                  
+               `description` text,                                                                
+               `photos` text,                                                                     
+               `lat` float(12,8) DEFAULT NULL,                                                    
+               `lng` float(12,8) DEFAULT NULL,                                                    
+               `status` varchar(50) DEFAULT NULL COMMENT 'pending,approved,disapproved,deleted',  
+               `createdAt` varchar(50) DEFAULT NULL,                                              
+               `updateAt` varchar(50) DEFAULT NULL,                                               
+               PRIMARY KEY (`id`)                                                                 
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `booking` (                                            
+           `booking_id` int(11) NOT NULL AUTO_INCREMENT,                     
+           `id` int(11) DEFAULT NULL,                                        
+           `uid` int(11) DEFAULT NULL,                                       
+           `createdAt` varchar(50) DEFAULT NULL,                             
+           `updatedAt` varchar(50) DEFAULT NULL,                             
+           `status` int(1) DEFAULT NULL COMMENT '1 - booked, 0, cancelled',  
+           PRIMARY KEY (`booking_id`)                                        
+         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
