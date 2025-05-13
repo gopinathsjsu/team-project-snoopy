@@ -6,7 +6,7 @@ A web-based restaurant management application built collaboratively by Team Snoo
 
 ## 🚀 Project Board  
 See our Kanban board for tasks, progress, and issues:  
-🔗 [GitHub Project Board](https://github.com/gopinathsjsu/team-project-snoopy) :contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}
+🔗 [GitHub Project Board](https://github.com/gopinathsjsu/team-project-snoopy)
 
 ---
 
@@ -14,8 +14,7 @@ See our Kanban board for tasks, progress, and issues:
 - **Dustin Nguyen**  
 - **Chink Patel**  
 - **Vikranth Jakamukala**  
-- **Nikhil Khanchandani** :contentReference[oaicite:2]{index=2}:contentReference[oaicite:3]{index=3}
-
+- **Nikhil Khanchandani**
 ---
 
 ## 🛠️ Areas of Contribution
@@ -25,7 +24,7 @@ See our Kanban board for tasks, progress, and issues:
 | Dustin Nguyen             | Frontend, UML             |
 | Chink Patel               | Frontend, UML             |
 | Vikranth Jakamukala       | Database / Backend        |
-| Nikhil Khanchandani       | Backend / Authentication  | :contentReference[oaicite:4]{index=4}:contentReference[oaicite:5]{index=5}
+| Nikhil Khanchandani       | Backend / Authentication  |
 
 ---
 
@@ -37,7 +36,7 @@ See our Kanban board for tasks, progress, and issues:
 - **Authentication**: NextAuth.js  
 - **Location Services**: Google Maps & IP-based geolocation  
 - **Styling**: CSS Modules, SCSS  
-- **Deployment**: Vercel or AWS :contentReference[oaicite:6]{index=6}:contentReference[oaicite:7]{index=7}
+- **Deployment**: Vercel or AWS
 
 ---
 
@@ -50,7 +49,7 @@ See our Kanban board for tasks, progress, and issues:
 
 ### 2. Simplicity  
 - Prioritized core functionality over visual polish.  
-- Ensured features worked reliably before adding extra styling or complexity. :contentReference[oaicite:8]{index=8}:contentReference[oaicite:9]{index=9}
+- Ensured features worked reliably before adding extra styling or complexity.
 
 ---
 
