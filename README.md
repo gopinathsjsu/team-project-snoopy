@@ -5,9 +5,8 @@ A full-stack restaurant reservation platform built with Next.js, where customers
 ## Tech Stack
 
 - **Frontend & Backend**: [Next.js]
-- **Language**: TypeScript
+- **Language**: Javascript
 - **Database**: MySQL (remote or cloud-hosted)
-- **Authentication**: NextAuth.js
 - **Location Features**: Google Maps & IP-based geolocation
 - **Styling**: CSS Modules, SCSS
-- **Deployment Ready**: Vercel or AWS
+- **Deployment**: Vercel
