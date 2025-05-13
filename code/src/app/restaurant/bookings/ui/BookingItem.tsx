@@ -5,9 +5,22 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/navigation";
+import { addReservation } from "@/app/restaurant/funcs";
 
 const BookingItem = ({ item }: { item: any }) => {
   const router = useRouter();
+  const handleCancel = async (item: any) => {
+    console.log(item);
+    await addReservation({
+      partySize: item.partySize,
+      reserveDay: item.reserveDay,
+      reserveTime: item.reserveTime,
+      token: localStorage.getItem("token"),
+      booking_id: item.booking_id,
+      status: 0,
+    });
+    window.location.reload();
+  };
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -33,6 +46,14 @@ const BookingItem = ({ item }: { item: any }) => {
           }}
         >
           View Restaurant
+        </Button>
+        <Button
+          size="small"
+          onClick={() => {
+            handleCancel(item);
+          }}
+        >
+          Cancel Booking
         </Button>
       </CardActions>
     </Card>

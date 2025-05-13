@@ -61,17 +61,12 @@ export const mail = async (data: any) => {
     throw new Error("message is missing.");
   }
 
-  const message = `From Email: ${data.email}
-  From Name: ${data.name}
-  From Subject: ${data.subject}
-  From message: ${data.message}`;
-
   const info = await sendMail({
     email: "admin@mkgalaxy.com",
-    sendTo: "manishkk74@gmail.com",
-    subject: `${data.name} has inquired about Online Tutor`,
-    text: message ?? "",
-    html: "",
+    sendTo: data.email,
+    subject: data.subject,
+    text: data.message ?? "",
+    html: data.message ?? "",
   });
   return info;
 };

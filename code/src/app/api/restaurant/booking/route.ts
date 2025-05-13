@@ -3,6 +3,7 @@ import pool from "@/utils/db";
 import { QueryResult } from "mysql2";
 import { verifyToken } from "@/app/api/auth2/funcs";
 import { ApiResponse } from "@/utils/types";
+import { mail } from "@/utils/funcs";
 
 // /api/restaurant/booking?token=
 export async function GET(req: NextRequest) {
@@ -28,7 +29,7 @@ export async function GET(req: NextRequest) {
           *
         FROM booking as b
         INNER JOIN restaurants as r ON b.id = r.id
-        WHERE b.uid = ?
+        WHERE b.uid = ? and b.status = 1
         ORDER BY b.booking_id DESC
       `,
       [user?.user_id]
@@ -115,6 +116,12 @@ export async function POST(req: NextRequest) {
         reserveTime,
       ]
     );
+    await mail({
+      email: user.email,
+      name: user.name,
+      subject: `Booking Confirmation - Restaurant ${id}`,
+      message: `Booking Details:\nDate: ${reserveDay}\nTime: ${reserveTime}\nParty Size: ${partySize}`,
+    });
 
     return NextResponse.json<ApiResponse<QueryResult>>(
       {
@@ -185,12 +192,13 @@ export async function PUT(req: NextRequest) {
     const createdAt = dt.toISOString();
     // Insert new restaurant
     const [result] = await pool.query(
-      `UPDATE restaurants SET
+      `UPDATE booking SET
         status = ?,
         partySize = ?,
         reserveDay = ?,
         reserveTime = ?,
-        updateAt = ?,
+        updatedAt = ?
+        where booking_id = ?
       `,
       [status, partySize, reserveDay, reserveTime, createdAt, booking_id]
     );
